@@ -50,7 +50,6 @@
 </script>
 
 <body>
-    @include('cookieConsent::index')
     @include('mynavbar')
     <input type="hidden" id="b_url" value="{{ url('/') }}" />
      <input type="hidden" id="param_url" value="{{ collect(request()->segments())->last() }}" />
