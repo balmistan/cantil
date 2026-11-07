@@ -4,9 +4,11 @@
         <title>{{ config('app.name', 'Laravel') }}</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="shortcut icon" type="image/png" href="favicon.ico" />
         <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>$.ajaxSetup({headers: {"X-CSRF-TOKEN": document.querySelector('meta[name="csrf-token"]').getAttribute("content")}});</script>
         <!--<script src="https://cdn.ckeditor.com/4.15.1/standard/ckeditor.js"></script>-->
         <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/ckeditor.js"></script>
         <script src="https://cdn.ckeditor.com/ckeditor5/29.1.0/classic/translations/de.js"></script>
