@@ -9,7 +9,8 @@ Route::view('/indice/{id?}', 'indicecanti')->name('indicecanti');
 Route::view('/visualizza/{id}', 'visualizza')->name('visualizza');
 Route::view('/fogliocanti', 'fogliocanti')->name('fogliocanti');
 
-Route::middleware(['auth', 'verified'])->group(function (): void {
+//Route::middleware(['auth', 'verified'])->group(function (): void {
+Route::middleware(['auth'])->group(function (): void {
     Route::view('/lista', 'lista')->name('lista');
     Route::view('/selezione', 'selezione')->name('selezione');
     Route::view('/modifica/{id}', 'modifica')->name('modifica');
