@@ -20,6 +20,16 @@
             //$("#result").html(data);
         })
                 .done(function (data) {
+
+data.sort(function (a, b) {
+        const aHash = a.title.trim().startsWith('#');
+        const bHash = b.title.trim().startsWith('#');
+
+        return Number(aHash) - Number(bHash);
+    });
+
+
+
                     data.forEach(function (entry) {
 
                         if (entry['status'] == "1") {
@@ -47,7 +57,7 @@
                         html_data += "<td>" + status + "</td>";
                         html_data += "<td><button class=\"modbutton\" _song-id=\"" + entry['id'] + "\">Modifica</button></td>";
                         html_data += "<td><button class=\"viewbutton\" _song-id=\"" + entry['id'] + "\">Visualizza</button></td>";
-                        html_data += "<td>" + parse(entry['description']) + "</td>";
+                        html_data += "<td>" + $('<div>').text(parse(entry['description'])).html() + "</td>";
                         html_data += "</tr>";
                         //alert(JSON.stringify(entry));
                     });
