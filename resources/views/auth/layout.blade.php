@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ config('app.name', 'Cantil') }}</title>
+    <title>{{ config('app.name') }}</title>
     <style>
         body{font-family:Arial,sans-serif;background:#f3f4f6;margin:0;min-height:100vh;display:grid;place-items:center}
         main{background:#fff;width:min(92%,420px);padding:2rem;border-radius:12px;box-shadow:0 8px 28px #0001}
@@ -15,7 +15,7 @@
 </head>
 <body>
 <main>
-    <h1>Cantil</h1>
+    <h1>{{ config('app.name') }}</h1>
     @if ($errors->any())
         <div class="error"><ul>@foreach ($errors->all() as $error)<li>{{ $error }}</li>@endforeach</ul></div>
     @endif
