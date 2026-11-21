@@ -1,0 +1,24 @@
+
+<IfModule mod_rewrite.c>
+    Options -Indexes
+    RewriteEngine On
+
+    # Forza HTTPS
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+    RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=302,L]
+
+    RewriteBase /4888/
+
+    # Protezione file sensibili
+    RewriteRule ^(\.env|artisan|composer\.(json|lock))$ - [F,L,NC]
+
+    # Le richieste passano dal nuovo index.php
+    RewriteRule ^public/ - [L]
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+
+
+
+
